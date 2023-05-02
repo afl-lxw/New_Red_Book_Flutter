@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_flutter/config/home_Img.dart';
 
 class CustomGridView extends StatelessWidget {
   @override
@@ -10,21 +11,30 @@ class CustomGridView extends StatelessWidget {
       padding: const EdgeInsets.all(16.0), //内边距
       mainAxisSpacing: 16.0, //主轴方向间距
       crossAxisSpacing: 16.0, //副轴方向间距
-      children: List.generate(40, (index) {
+      children: List.generate(HomeImgList.imgList.length, (index) {
         return Container(
           decoration: BoxDecoration(
-            color: Colors.blue, //背景颜色
+            color: Colors.grey[300], //背景颜色
             borderRadius: BorderRadius.circular(8.0), //圆角
           ),
-          child: Center(
-            child: Text(
-              'Item $index',
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 20.0,
-                fontWeight: FontWeight.bold,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(
+                HomeImgList.imgList[index]['imgPath'],
+                width: 50,
+                height: 90,
+                fit: BoxFit.cover,
               ),
-            ),
+              const SizedBox(height: 8.0),
+              Text(
+                HomeImgList.imgList[index]['name'],
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 16.0,
+                ),
+              ),
+            ],
           ),
         );
       }),
