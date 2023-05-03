@@ -6,7 +6,7 @@ class CustomGridView extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridView.count(
       crossAxisCount: 2, //每行显示2个Container
-      childAspectRatio: 1.0, //子项宽高比为1:1
+      childAspectRatio: 2.0, //子项宽高比为1:1
       physics: const BouncingScrollPhysics(), //滚动效果
       padding: const EdgeInsets.all(16.0), //内边距
       mainAxisSpacing: 16.0, //主轴方向间距
@@ -23,7 +23,7 @@ class CustomGridView extends StatelessWidget {
               Image.asset(
                 HomeImgList.imgList[index]['imgPath'],
                 width: 50,
-                height: 90,
+                height: 50,
                 fit: BoxFit.cover,
               ),
               const SizedBox(height: 8.0),

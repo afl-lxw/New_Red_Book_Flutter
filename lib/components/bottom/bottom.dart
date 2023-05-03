@@ -27,21 +27,23 @@ class BottomListState extends State<BottomList> {
         color: Colors.transparent,
         shape: const CircularNotchedRectangle(),
         notchMargin: 5.0,
+        elevation: 300,
+        clipBehavior: Clip.antiAlias,
         child: Column(mainAxisSize: MainAxisSize.min, // 限制 bottom 只占用必要的空间
             children: <Widget>[
               Padding(
                   padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                   child: Container(
                     decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(1),
+                      // color: Colors.white.withOpacity(1),
                       borderRadius: BorderRadius.circular(40.0),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 5,
-                          blurRadius: 7,
+                          color: Colors.grey.withOpacity(0.4),
+                          spreadRadius: 3,
+                          blurRadius: 3,
                           offset:
-                              const Offset(0, 3), // changes position of shadow
+                              const Offset(2, 3), // changes position of shadow
                         ),
                       ],
                     ),
@@ -49,12 +51,12 @@ class BottomListState extends State<BottomList> {
                     child: ClipRRect(
                         borderRadius: BorderRadius.circular(40),
                         child: BackdropFilter(
-                            filter: ImageFilter.blur(sigmaX: 50, sigmaY: 50),
+                            filter: ImageFilter.blur(sigmaX: 60, sigmaY: 60),
                             child: Container(
                               height: 65.0,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(40.0),
-                                color: Colors.white.withOpacity(0.1),
+                                // color: Colors.white.withOpacity(0.1),
                               ),
                               child: Stack(
                                 children: [
