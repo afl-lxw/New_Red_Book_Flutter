@@ -11,7 +11,7 @@ class _AdminContainerState extends State<AdminContainer> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.blue,
+      color: Colors.white,
       height: MediaQuery.of(context).size.height,
     );
   }
