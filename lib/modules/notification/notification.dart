@@ -13,7 +13,7 @@ class _NotificationContainerState extends State<NotificationContainer> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Notification'),
+        title: const Text('Notification-'),
       ),
       key: UniqueKey(),
       body: StaggeredGridView.countBuilder(
