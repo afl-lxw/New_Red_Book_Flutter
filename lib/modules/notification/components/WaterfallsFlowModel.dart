@@ -95,7 +95,7 @@ class _MyHomePageState extends State<WaterfallsFlowModel> {
             imageHeightMiddleware = 250;
           }
           const double textHeight = 30; // 假设每个图片下面有30高度的文字
-          final int numLines = (textHeight / 20).ceil(); // 假设每行文字高度为20
+          final int numLines = (textHeight / 20).ceil(); // -假设每行文字高度为20
           final double totalHeight =
               imageHeightMiddleware + numLines * textHeight;
           return StaggeredTile.extent(1, totalHeight);
