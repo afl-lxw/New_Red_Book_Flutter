@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'components/WaterfallsFlowModel.dart';
 
 class NotificationContainer extends StatefulWidget {
@@ -10,6 +9,15 @@ class NotificationContainer extends StatefulWidget {
 }
 
 class _NotificationContainerState extends State<NotificationContainer> {
+  late final AnimationController? animationController;
+  final ScrollController scrollController = ScrollController();
+
+  @override
+  void initState() {
+    animationController?.addListener(() {});
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return const WaterfallsFlowModel();
