@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:test_flutter/provider/btn_provider.dart';
 import 'package:test_flutter/router/router_List.dart';
 import 'components/bottom/bottom.dart' as BottomContainer;
+import 'modules/login/login.dart';
 
 void main() {
   runApp(const MyApp());
@@ -35,8 +36,12 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   final bool isDrawerOpen = false;
+  late bool isLogin = false;
   @override
   void initState() {
+    setState(() {
+      isLogin = true;
+    });
     super.initState();
     // bool isDrawerOpen = _scaffoldKey.currentState!.isDrawerOpen;-
   }
@@ -45,29 +50,32 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     // 获取provider
     final btnProvider = Provider.of<IndexBtnProvider>(context);
-    return Stack(
-      children: [
-        Scaffold(
-          key: _scaffoldKey,
-          // appBar: const AppBarContainer(),
-          extendBody: true,
-          bottomNavigationBar:
-              !isDrawerOpen ? const BottomContainer.BottomList() : null,
-          backgroundColor: const Color.fromARGB(254, 254, 254, 254),
-          body: RouterList.Router_List_State().elementAt(btnProvider.getIndex),
-          // drawer: const DrawerWidget(),
+    return isLogin
+        ? LoginWidget()
+        : Stack(
+            children: [
+              Scaffold(
+                key: _scaffoldKey,
+                // appBar: const AppBarContainer(),
+                extendBody: true,
+                bottomNavigationBar:
+                    !isDrawerOpen ? const BottomContainer.BottomList() : null,
+                backgroundColor: const Color.fromARGB(254, 254, 254, 254),
+                body: RouterList.Router_List_State()
+                    .elementAt(btnProvider.getIndex),
+                // drawer: const DrawerWidget(),
 
-          floatingActionButton: FloatingActionButton(
-            backgroundColor: const Color.fromRGBO(110, 185, 205, 1),
-            onPressed: () => {},
-            // elevation: 2.0,
-            child: const Icon(Icons.add),
-          ),
-          floatingActionButtonLocation:
-              FloatingActionButtonLocation.centerDocked, // This
-        ),
-        // const Positioned(top: 0, bottom: 0, left: 0, child: DrawerWidget())
-      ],
-    );
+                floatingActionButton: FloatingActionButton(
+                  backgroundColor: const Color.fromRGBO(110, 185, 205, 1),
+                  onPressed: () => {},
+                  // elevation: 2.0,
+                  child: const Icon(Icons.add),
+                ),
+                floatingActionButtonLocation:
+                    FloatingActionButtonLocation.centerDocked, // This
+              ),
+              // const Positioned(top: 0, bottom: 0, left: 0, child: DrawerWidget())
+            ],
+          );
   }
 }

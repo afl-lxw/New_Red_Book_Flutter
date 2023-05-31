@@ -9,12 +9,12 @@ class NotificationContainer extends StatefulWidget {
 }
 
 class _NotificationContainerState extends State<NotificationContainer> {
-  late final AnimationController? animationController;
+  // late final AnimationController? animationController;
   final ScrollController scrollController = ScrollController();
 
   @override
   void initState() {
-    animationController?.addListener(() {});
+    // animationController?.addListener(() {});
     super.initState();
   }
 

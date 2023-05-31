@@ -56,7 +56,7 @@ class _MyHomePageState extends State<WaterfallsFlowModel> {
     // 监听图片加载完成事件
     imageStream.addListener(listener);
 
-    // 等待图片加载完成
+    // 等待图片加载完成-
     await completer.future;
   }
 
@@ -74,12 +74,14 @@ class _MyHomePageState extends State<WaterfallsFlowModel> {
         crossAxisSpacing: 12,
         itemBuilder: (BuildContext context, int index) {
           return AspectRatio(
-            aspectRatio: 1,
-            child: Image.network(
-              _imageUrls[index],
-              fit: BoxFit.cover,
-            ),
-          );
+              aspectRatio: 1,
+              child: FadeTransition(
+                opacity: const AlwaysStoppedAnimation(1),
+                child: Image.network(
+                  _imageUrls[index],
+                  fit: BoxFit.cover,
+                ),
+              ));
         },
         staggeredTileBuilder: (int index) {
           // 计算图片在瀑布流中的高度
