@@ -56,7 +56,7 @@ class _MyHomePageState extends State<WaterfallsFlowModel> {
     // 监听图片加载完成事件
     imageStream.addListener(listener);
 
-    // 等待图片加载完成-
+    // 等待图片加载完成--
     await completer.future;
   }
 
